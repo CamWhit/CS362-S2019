@@ -38,10 +38,9 @@ int main() {
 	int seed = 500;
 	int players = 2;
 
-	//The smithy card is discarded after being played
-	int cardsDiscard = 1;
-	//Three cards should be drawn
-	int drawnCards = 3;
+	int coinsGained = 2;
+	int cardsPlayed = 1;
+	int cardsLost = 1;
 
 	//Create game state
 	struct gameState state, testState;
@@ -69,6 +68,12 @@ int main() {
 
 	//second test: the correct number of cards were drawn (3 cards should've been draw)
 	printf("TEST 2: Testing Result of %s Card\n", TESTCARD);
+	printf("Coin Count = %d, Expected Coin Count = %d\n", testState.coins, state.coins + coinsGained);
+	customAssert(testState.coins, state.coins + coinsGained);
+	printf("Hand Count = %d, Expected Hand Count = %d\n", testState.handCount[currentPlayer], state.handCount[currentPlayer] - cardsPlayed);
+	customAssert(testState.handCount[currentPlayer], state.handCount[currentPlayer] - cardsPlayed);
+	printf("Opponent Hand Count = %d, Expected Opponent Hand Count = %d\n", testState.handCount[currentPlayer + 1], state.handCount[currentPlayer + 1] - cardsLost);
+
 
 
 	if (SUCCESS == 0)
