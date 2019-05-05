@@ -72,11 +72,8 @@ int main() {
 	customAssert(testState.deckCount[currentPlayer], state.deckCount[currentPlayer] - cardsDrawn);
 	printf("Played Card Pile Count = %d, Expected Played Card Pile Count = %d\n", testState.playedCardCount, state.playedCardCount + cardsPlayed);
 	customAssert(testState.playedCardCount, state.playedCardCount + cardsPlayed);
-	
-	
-	
-	printf("Hand Coins = %d, Expected = %d\n", fullDeckCount(currentPlayer, copper, &testState), state.deck[currentPlayer]);
-
+	printf("Deck Count = %d, Expected Deck Count = %d\n", fullDeckCount(currentPlayer, copper, &testState), fullDeckCount(currentPlayer, copper, &state));
+	customAssert(fullDeckCount(currentPlayer, copper, &testState), fullDeckCount(currentPlayer, copper, &state));
 	printf("Value of two recent cards in hand: %d, %d\n", testState.hand[currentPlayer][5], testState.hand[currentPlayer][6]);
 	customAssert(copper, testState.hand[currentPlayer][5]);
 	customAssert(copper, testState.hand[currentPlayer][6]);

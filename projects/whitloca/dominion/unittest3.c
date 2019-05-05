@@ -69,11 +69,31 @@ int main() {
 	printf("Refactored function ran successfully\n");
 
 
-	printf("TEST 2: Testing Result of %s Card\n", TESTCARD);
+	printf("TEST 2: Testing Result of %s Card, choice 1 coins+2\n", TESTCARD);
 	printf("Hand Count = %d, Expected Hand Count = %d\n", testState.handCount[currentPlayer], state.handCount[currentPlayer] - playedCards);
 	customAssert(testState.handCount[currentPlayer], state.handCount[currentPlayer] - playedCards);
 	printf("Coin Count = %d, Expected Coin Count = %d\n", testState.coins, state.coins + coinsGained);
 	customAssert(testState.coins, state.coins + coinsGained);
+	printf("Deck Count = %d, Expected Deck Count = %d\n", fullDeckCount(currentPlayer, minion, &testState) + 1, fullDeckCount(currentPlayer, minion, &state) + 1);
+	customAssert(fullDeckCount(currentPlayer, minion, &testState) + 1, fullDeckCount(currentPlayer, minion, &state) + 1);
+	printf("Number of actions = %d, Expected Number of actions = %d\n", testState.numActions, state.numActions + 1);
+	customAssert(testState.numActions, state.numActions + 1);
+
+
+	printf("TEST 3: Testing Result of %s Card, choice 2 players redraw to 4 cards\n", TESTCARD);
+	struct gameState testState2;
+	initializeGame(players, k, seed, &testState2);
+	choice1 = 0;
+	choice2 = 1;
+	x = minionCard(&testState2, currentPlayer, handPos, choice1, choice2);
+	printf("Hand Count = %d, Expected Hand Count = %d\n", testState2.handCount[currentPlayer], state.handCount[currentPlayer] - 1);
+	customAssert(testState2.handCount[currentPlayer], state.handCount[currentPlayer] - 1);
+	printf("Coin count = %d, Expected Coin Count = %d\n", testState2.coins, state.coins);
+	customAssert(testState2.coins, state.coins);
+	printf("Discard Count = %d, Expected Discard Count = %d\n", testState2.playedCardCount, state.playedCardCount + 4);
+	customAssert(testState2.playedCardCount, state.playedCardCount + 4);
+	printf("Number of actions = %d, Expected Number of actions = %d\n", testState2.numActions, state.numActions + 1);
+	customAssert(testState2.numActions, state.numActions + 1);
 	
 
 	if (SUCCESS == 0)
