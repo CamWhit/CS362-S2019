@@ -1,0 +1,72 @@
+"Result for running unittest1:" 
+"unittest1.c:" 
+-------------------- Testing Card: smithy --------------------
+TEST 1: Function smithyCard runs successfully
+Refactored function ran successfully
+TEST 2: Testing Result of smithy Card
+Hand Count = 8, Expected Hand Count = 7
+**Assertion Failed** Program will continue instead of crashing
+Deck Count = 1, Expected Deck Count = 2
+**Assertion Failed** Program will continue instead of crashing
+Opponent Hand Count = 0, Expected Opponent Hand Count = 0
+Opponent Deck Count = 10, Expected Opponent Deck Count = 10
+Played Card Pile Count = 1, Expected Played Card Pile Count = 1
+-------------------- TESTING FAILED: Failed 2 Asserts --------------------
+File 'dominion.c'
+Lines executed:19.28% of 612
+Creating 'dominion.c.gcov'
+
+File 'c:/mingw/include/stdio.h'
+Lines executed:0.00% of 5
+Creating 'stdio.h.gcov'
+
+"Result for running unittest2:" 
+"unittest2.c:" 
+-------------------- Testing Card: adventurer --------------------
+TEST 1: Function adventurerCard runs successfully
+Refactored function ran successfully
+TEST 2: Testing Result of adventurer Card
+Hand Count = 7, Expected Hand Count = 7
+Deck Count = 3, Expected Deck Count = 3
+Played Card Pile Count = 0, Expected Played Card Pile Count = 1
+**Assertion Failed** Program will continue instead of crashing
+Hand Coins = 2, Expected = 2
+-------------------- TESTING FAILED: Failed 1 Asserts --------------------
+File 'dominion.c'
+Lines executed:23.04% of 612
+Creating 'dominion.c.gcov'
+
+File 'c:/mingw/include/stdio.h'
+Lines executed:0.00% of 5
+Creating 'stdio.h.gcov'
+
+"Results for running unittest3:" 
+"unittest3.c:" 
+-------------------- Testing Card: minion --------------------
+TEST 1: Function minionCard runs successfully
+Refactored function ran successfully
+TEST 2: Testing Result of minion Card
+-------------------- SUCCESS: Testing for minion Complete --------------------
+File 'dominion.c'
+Lines executed:23.04% of 612
+Creating 'dominion.c.gcov'
+
+File 'c:/mingw/include/stdio.h'
+Lines executed:0.00% of 5
+Creating 'stdio.h.gcov'
+
+"Results for running unittest4:" 
+"unittest4.c:" 
+-------------------- Testing Card: cutpurse --------------------
+TEST 1: Function cutpurseCard runs successfully
+Refactored function ran successfully
+TEST 2: Testing Result of cutpurse Card
+-------------------- SUCCESS: Testing for cutpurse Complete --------------------
+File 'dominion.c'
+Lines executed:23.04% of 612
+Creating 'dominion.c.gcov'
+
+File 'c:/mingw/include/stdio.h'
+Lines executed:0.00% of 5
+Creating 'stdio.h.gcov'
+
