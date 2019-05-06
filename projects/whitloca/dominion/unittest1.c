@@ -81,8 +81,8 @@ int main() {
 	customAssert(testState.playedCardCount, state.playedCardCount + cardsDiscard);
 	
 	if (SUCCESS == 0)
-		printf("-------------------- SUCCESS: Testing for %s Complete --------------------\n", TESTCARD);
+		printf("-------------------- SUCCESS: Testing for %s Complete --------------------\n\n", TESTCARD);
 	if (SUCCESS != 0)
-		printf("-------------------- TESTING FAILED: Failed %d Asserts --------------------\n", SUCCESS);
+		printf("-------------------- TESTING FAILED: Failed %d Asserts --------------------\n\n", SUCCESS);
 	return 0;
 }

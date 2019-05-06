@@ -1,11 +1,11 @@
 /*
-unittest1.c
-Unittest for refactored function smithyCard
+unittest4.c
+Unittest for refactored function cutpurseCard
 
 include:
 
-unittest1: unittest1.c dominion.o rngs.o
-gcc -o unittest1 -g unittest1.c dominion.o rngs.o $(CFLAGS)
+unittest4: unittest4.c dominion.o rngs.o
+gcc -o unittest4 -g unittest4.c dominion.o rngs.o $(CFLAGS)
 
 in the makefile
 */
@@ -40,7 +40,7 @@ int main() {
 
 	int coinsGained = 2;
 	int cardsPlayed = 1;
-	int cardsLost = 1;
+	int discardedCards = 0;
 
 	//Create game state
 	struct gameState state, testState;
@@ -66,19 +66,19 @@ int main() {
 	customAssert(x, 0);
 	printf("Refactored function ran successfully\n");
 
-	//second test: the correct number of cards were drawn (3 cards should've been draw)
+	//second test: coins are updated
 	printf("TEST 2: Testing Result of %s Card\n", TESTCARD);
 	printf("Coin Count = %d, Expected Coin Count = %d\n", testState.coins, state.coins + coinsGained);
 	customAssert(testState.coins, state.coins + coinsGained);
 	printf("Hand Count = %d, Expected Hand Count = %d\n", testState.handCount[currentPlayer], state.handCount[currentPlayer] - cardsPlayed);
 	customAssert(testState.handCount[currentPlayer], state.handCount[currentPlayer] - cardsPlayed);
-	printf("Opponent Hand Count = %d, Expected Opponent Hand Count = %d\n", testState.handCount[currentPlayer + 1], state.handCount[currentPlayer + 1] - cardsLost);
-
+	printf("Opponent Hand Count = %d, Expected Opponent Hand Count = %d\n", testState.handCount[currentPlayer+1], state.handCount[currentPlayer+1] + discardedCards);
+	customAssert(testState.handCount[currentPlayer+1], state.handCount[currentPlayer+1] + discardedCards);
 
 
 	if (SUCCESS == 0)
-		printf("-------------------- SUCCESS: Testing for %s Complete --------------------\n", TESTCARD);
+		printf("-------------------- SUCCESS: Testing for %s Complete --------------------\n\n", TESTCARD);
 	if (SUCCESS != 0)
-		printf("-------------------- TESTING FAILED: Failed %d Asserts --------------------\n", SUCCESS);
+		printf("-------------------- TESTING FAILED: Failed %d Asserts --------------------\n\n", SUCCESS);
 	return 0;
 }

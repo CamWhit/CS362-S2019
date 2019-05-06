@@ -12,13 +12,6 @@ Opponent Hand Count = 0, Expected Opponent Hand Count = 0
 Opponent Deck Count = 10, Expected Opponent Deck Count = 10
 Played Card Pile Count = 1, Expected Played Card Pile Count = 1
 -------------------- TESTING FAILED: Failed 2 Asserts --------------------
-File 'dominion.c'
-Lines executed:19.28% of 612
-Creating 'dominion.c.gcov'
-
-File 'c:/mingw/include/stdio.h'
-Lines executed:0.00% of 5
-Creating 'stdio.h.gcov'
 
 "Result for running unittest2:" 
 "unittest2.c:" 
@@ -30,30 +23,26 @@ Hand Count = 7, Expected Hand Count = 7
 Deck Count = 3, Expected Deck Count = 3
 Played Card Pile Count = 0, Expected Played Card Pile Count = 1
 **Assertion Failed** Program will continue instead of crashing
-Hand Coins = 2, Expected = 2
+Deck Count = 7, Expected Deck Count = 7
+Value of two recent cards in hand: 4, 4
 -------------------- TESTING FAILED: Failed 1 Asserts --------------------
-File 'dominion.c'
-Lines executed:23.04% of 612
-Creating 'dominion.c.gcov'
-
-File 'c:/mingw/include/stdio.h'
-Lines executed:0.00% of 5
-Creating 'stdio.h.gcov'
 
 "Results for running unittest3:" 
 "unittest3.c:" 
 -------------------- Testing Card: minion --------------------
 TEST 1: Function minionCard runs successfully
 Refactored function ran successfully
-TEST 2: Testing Result of minion Card
+TEST 2: Testing Result of minion Card, choice 1 coins+2
+Hand Count = 4, Expected Hand Count = 4
+Coin Count = 5, Expected Coin Count = 5
+Deck Count = 1, Expected Deck Count = 1
+Number of actions = 2, Expected Number of actions = 2
+TEST 3: Testing Result of minion Card, choice 2 players redraw to 4 cards
+Hand Count = 4, Expected Hand Count = 4
+Coin count = 3, Expected Coin Count = 3
+Discard Count = 4, Expected Discard Count = 4
+Number of actions = 2, Expected Number of actions = 2
 -------------------- SUCCESS: Testing for minion Complete --------------------
-File 'dominion.c'
-Lines executed:23.04% of 612
-Creating 'dominion.c.gcov'
-
-File 'c:/mingw/include/stdio.h'
-Lines executed:0.00% of 5
-Creating 'stdio.h.gcov'
 
 "Results for running unittest4:" 
 "unittest4.c:" 
@@ -61,12 +50,74 @@ Creating 'stdio.h.gcov'
 TEST 1: Function cutpurseCard runs successfully
 Refactored function ran successfully
 TEST 2: Testing Result of cutpurse Card
--------------------- SUCCESS: Testing for cutpurse Complete --------------------
+Coin Count = 4, Expected Coin Count = 5
+**Assertion Failed** Program will continue instead of crashing
+Hand Count = 4, Expected Hand Count = 4
+Opponent Hand Count = 0, Expected Opponent Hand Count = 0
+-------------------- TESTING FAILED: Failed 1 Asserts --------------------
+
+"Results for running cardtest1:" 
+"cardtest1.c:" 
+-------------------- Testing Card: smithy --------------------
+TEST 1: Smithy runs successfully
+Card ran successfully
+TEST 2: Testing Result of smithy Card
+Card Count = 8, Expected Card Count = 7
+**Assertion Failed** Program will continue instead of crashing
+First Card in Hand = 4, Expected First Card in Hand = 4
+Estate's in Starting Deck Count = 3, Expected Estate's in Starting Deck = 3
+-------------------- TESTING FAILED: Failed 1 Asserts --------------------
+
+"Results for running cardtest2:" 
+"cardtest2.c:" 
+-------------------- Testing Card: adventurer --------------------
+TEST 1: Function Adventurer runs successfully
+Card ran successfully
+TEST 2: Testing Result of adventurer Card
+Hand Count = 7, Expected Hand Count = 7
+Played Card Pile Count = 0, Expected Played Card Pile Count = 1
+**Assertion Failed** Program will continue instead of crashing
+Coin Count = -1, Expected Coin Count = -1
+-------------------- TESTING FAILED: Failed 1 Asserts --------------------
+
+"Results for running cardtest3:" 
+"cardtest3.c:" 
+-------------------- Testing Card: salvager --------------------
+TEST 1: Function Salvager runs successfully
+Card ran successfully
+TEST 2: Testing Result of salvager Card
+Trashed Card = 1, Expected Trashed Card = 1
+Buys For This Turn = 2, Expected Buys For This Turn = 2
+Coins Available = 5, Expected Coins Available = 5
+Trashed Pile Count = 1, Expected Trashed Pile Count = 1
+-------------------- SUCCESS: Testing for salvager Complete --------------------
+
+"Results for running cardtest4:" 
+"cardtest4.c:" 
+-------------------- Testing Card: baron --------------------
+TEST 1: Baron runs successfully
+Card ran successfully
+TEST 2: Testing Result of baron Card, Discarding an Estate
+Buy Count = 2, Expected Buy Count = 2
+Hand Count = 4, Expected Hand Count = 4
+Coin Count = 7, Expected Coin Count = 7
+Cards Discarded from Hand = 1, Expected Cards Discarded from Hand = 1
+TEST 3: Testing Result of baron Card, Discarding a Copper
+Buy Count = 2, Expected Buy Count = 2
+Hand Count = 5, Expected Hand Count = 5
+Coin Count = 7, Expected Coin Count = 7
+-------------------- SUCCESS: Testing for baron Complete --------------------
+
 File 'dominion.c'
-Lines executed:23.04% of 612
+Lines executed:37.91% of 612
+Branches executed:45.80% of 417
+Taken at least once:29.98% of 417
+Calls executed:35.79% of 95
 Creating 'dominion.c.gcov'
 
 File 'c:/mingw/include/stdio.h'
 Lines executed:0.00% of 5
+No branches
+Calls executed:0.00% of 1
 Creating 'stdio.h.gcov'
 

@@ -38,11 +38,8 @@ int main() {
 	int players = 2;
 	
 	//Comparison variables
-	int cardsDiscard = 0;
 	int cardsPlayed = 1;
 	int cardsDrawn = 2;
-	int drawTreasureCount = 0;
-	int treasureCount = 0;
 	
 	struct gameState state, testState;
 	int k[10] = {adventurer, embargo, village, minion, mine, cutpurse, sea_hag, tribute, smithy, council_room};
@@ -79,8 +76,8 @@ int main() {
 	customAssert(copper, testState.hand[currentPlayer][6]);
 	
 	if (SUCCESS == 0)
-	printf("-------------------- SUCCESS: Testing for %s Complete --------------------\n", TESTCARD);
+	printf("-------------------- SUCCESS: Testing for %s Complete --------------------\n\n", TESTCARD);
 	if (SUCCESS != 0)
-	printf("-------------------- TESTING FAILED: Failed %d Asserts --------------------\n", SUCCESS);
+	printf("-------------------- TESTING FAILED: Failed %d Asserts --------------------\n\n", SUCCESS);
 	return 0;
 }

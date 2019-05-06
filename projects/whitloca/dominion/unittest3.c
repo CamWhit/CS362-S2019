@@ -1,11 +1,11 @@
 /*
-unittest1.c
-Unittest for refactored function smithyCard
+unittest3.c
+Unittest for refactored function minionCard
 
 include:
 
-unittest1: unittest1.c dominion.o rngs.o
-gcc -o unittest1 -g unittest1.c dominion.o rngs.o $(CFLAGS)
+unittest3: unittest3.c dominion.o rngs.o
+gcc -o unittest3 -g unittest3.c dominion.o rngs.o $(CFLAGS)
 
 in the makefile
 */
@@ -38,8 +38,6 @@ int main() {
 	int seed = 500;
 	int players = 2;
 
-	int cardsDiscard = 0;
-	int drawnCards = 0;
 	int playedCards = 1;
 	int coinsGained = 2;
 
@@ -97,8 +95,8 @@ int main() {
 	
 
 	if (SUCCESS == 0)
-		printf("-------------------- SUCCESS: Testing for %s Complete --------------------\n", TESTCARD);
+		printf("-------------------- SUCCESS: Testing for %s Complete --------------------\n\n", TESTCARD);
 	if (SUCCESS != 0)
-		printf("-------------------- TESTING FAILED: Failed %d Asserts --------------------\n", SUCCESS);
+		printf("-------------------- TESTING FAILED: Failed %d Asserts --------------------\n\n", SUCCESS);
 	return 0;
 }
