@@ -22,9 +22,16 @@ gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS
 int FAILURES = 0;
 int NUMTESTS = 10000;
 
-void customAssert(int varOne, int varTwo) {
+void customAssert(int varOne, int varTwo, int type) {
 	if (varOne != varTwo) {
-		printf("**Assertion Failed** Program will continue instead of crashing\n", varOne, varTwo);
+		if (type == 0)
+			printf("**Assertion Failed** Function Failed To Run. Program will continue instead of crashing\n");
+		else if (type == 1)
+			printf("**Assertion Failed** Incorrect Draw Amount. Program will continue instead of crashing\n");
+		else if (type == 2)
+			printf("**Assertion Failed** Incorrect Played Card Count. Program will continue instead of crashing\n");
+		else
+			printf("**Assertion Failed** Program will continue instead of crashing\n");
 		FAILURES = FAILURES + 1;
 	}
 }
@@ -37,7 +44,6 @@ int main() {
 	int card;
 	int added;
 	int x;
-	int seed;
 	struct gameState testState, state;
 	SelectStream(2);
 	PutSeed(3);
@@ -115,12 +121,12 @@ int main() {
 		//printf("%d, %d, %d, %d, %d\n", numPlayers, currentPlayer, testState.deckCount[currentPlayer], testState.discardCount[currentPlayer], testState.handCount[currentPlayer]);
 		
 		x = adventurerCard(&testState, currentPlayer);
-		customAssert(x, 0);
+		customAssert(x, 0, 0);
 		//Statement used for testing
 		//printf("Ran statement\n");
 		
-		customAssert(testState.handCount[currentPlayer], state.handCount[currentPlayer] + 2);
-		customAssert(testState.playedCardCount, state.playedCardCount);
+		customAssert(testState.handCount[currentPlayer], state.handCount[currentPlayer] + 2, 1);
+		customAssert(testState.playedCardCount, state.playedCardCount, 2);
 		
 	}
 	

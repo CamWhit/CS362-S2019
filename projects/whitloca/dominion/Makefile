@@ -18,6 +18,8 @@ randomtestresults.out: randomtestadventurer.c randomtestcard1.c randomtestcard2.
 	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
 	randomtestcard2.exe >> randomtestresults.out
 
+	gcov -a -b -f dominion.c >> randomtestresults.out
+
 randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
 	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
 

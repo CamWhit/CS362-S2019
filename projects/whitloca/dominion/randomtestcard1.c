@@ -22,9 +22,16 @@ gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
 int FAILURES = 0;
 int NUMTESTS = 10000;
 
-void customAssert(int varOne, int varTwo) {
+void customAssert(int varOne, int varTwo, int type) {
 	if (varOne != varTwo) {
-		printf("**Assertion Failed** Program will continue instead of crashing\n", varOne, varTwo);
+		if (type == 0)
+			printf("**Assertion Failed** Function Failed To Run. Program will continue instead of crashing\n");
+		else if (type == 1)
+			printf("**Assertion Failed** Incorrect Draw Amount. Program will continue instead of crashing\n");
+		else if (type == 2)
+			printf("**Assertion Failed** Incorrect Action Count. Program will continue instead of crashing\n");
+		else
+			printf("**Assertion Failed** Program will continue instead of crashing\n");
 		FAILURES = FAILURES + 1;
 	}
 }
@@ -37,8 +44,7 @@ int main() {
 	int card;
 	int added;
 	int x;
-	int seed;
-	struct gameState testState;
+	struct gameState testState, state;
 	SelectStream(2);
 	PutSeed(3);
 	
@@ -71,38 +77,40 @@ int main() {
 		
 		for (int l = 0; l < sizeof(struct gameState); l++) {
 			((char*) &testState)[l] = floor(Random() * 256);
+			((char*) &state)[l] = ((char*) &testState)[l];
 		}
 		
 		currentPlayer = floor(Random() * numPlayers);
 		
 		testState.deckCount[currentPlayer] = floor(Random() * MAX_DECK);
+		state.deckCount[currentPlayer] = testState.deckCount[currentPlayer];
 		
 		testState.discardCount[currentPlayer] = floor(Random() * MAX_DECK);
+		state.discardCount[currentPlayer] = testState.discardCount[currentPlayer];
 		
 		testState.handCount[currentPlayer] = floor(Random() * MAX_HAND);
+		state.handCount[currentPlayer] = testState.handCount[currentPlayer];
 		if (testState.handCount[currentPlayer] < 1) {
 			testState.handCount[currentPlayer] = 1;
+			state.handCount[currentPlayer] = 1;
 		} 
 		testState.hand[currentPlayer][0] = village;
+		state.hand[currentPlayer][0] = village;
 		
 		testState.playedCardCount = floor(Random() * 10);
+		state.playedCardCount = testState.playedCardCount;
 		
 		//Statement used for testing
 		//printf("%d, %d, %d, %d, %d\n", numPlayers, currentPlayer, testState.deckCount[currentPlayer], testState.discardCount[currentPlayer], testState.handCount[currentPlayer]);
 		
 		x = villageCard(&testState, currentPlayer, 0);
-		customAssert(x, 0);
+		customAssert(x, 0, 0);
 		//Statement used for testing
 		//printf("Ran statement\n");
+	
 		
-		
-		//seed = floor(Random() * 500);
-		//initializeGame(numPlayers, k, seed, &testState);
-		
-		//initializeGame(); //Needs # players, supply list, seed, and state struct
-		
-		
-		
+		customAssert(testState.handCount[currentPlayer], state.handCount[currentPlayer], 1);
+		customAssert(testState.numActions, state.numActions + 2, 2);
 		
 		
 		
