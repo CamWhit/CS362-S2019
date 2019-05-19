@@ -20,7 +20,7 @@ gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS
 #define TESTCARD "Adventurer"
 
 int FAILURES = 0;
-int NUMTESTS = 10000;
+int NUMTESTS = 20000;
 
 void customAssert(int varOne, int varTwo, int type) {
 	if (varOne != varTwo) {
@@ -84,6 +84,7 @@ int main() {
 		
 		testState.deckCount[currentPlayer] = floor(Random() * MAX_DECK);
 		state.deckCount[currentPlayer] = testState.deckCount[currentPlayer];
+		
 		if (testState.deckCount[currentPlayer] > 1) {
 			testState.deck[currentPlayer][testState.deckCount[currentPlayer] - 1] = copper;
 			testState.deck[currentPlayer][testState.deckCount[currentPlayer] - 2] = copper;

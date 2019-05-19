@@ -20,7 +20,7 @@ gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
 #define TESTCARD "Village"
 
 int FAILURES = 0;
-int NUMTESTS = 10000;
+int NUMTESTS = 20000;
 
 void customAssert(int varOne, int varTwo, int type) {
 	if (varOne != varTwo) {
