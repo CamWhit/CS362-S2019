@@ -1,10 +1,10 @@
 /*
-randomtestadventurer.c
-Random Testing for the Refactored Adventurer Card Code
+randomtesttestcard1.c
+Random Testing for the Refactored Village Card Code
 
 Include the Following in the Makefile:
-randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
-gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
+randomtestcard1: randomtestcard1.c dominion.o rngs.o
+gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
 
 
 */
@@ -17,7 +17,7 @@ gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS
 #include <math.h>
 #include <stdlib.h>
 
-#define TESTCARD "Adventurer"
+#define TESTCARD "Village"
 
 int FAILURES = 0;
 int NUMTESTS = 10000;
@@ -38,7 +38,7 @@ int main() {
 	int added;
 	int x;
 	int seed;
-	struct gameState testState, state;
+	struct gameState testState;
 	SelectStream(2);
 	PutSeed(3);
 	
@@ -71,56 +71,42 @@ int main() {
 		
 		for (int l = 0; l < sizeof(struct gameState); l++) {
 			((char*) &testState)[l] = floor(Random() * 256);
-			((char*) &state)[l] = ((char*) &testState)[l];
 		}
 		
 		currentPlayer = floor(Random() * numPlayers);
 		
 		testState.deckCount[currentPlayer] = floor(Random() * MAX_DECK);
-		state.deckCount[currentPlayer] = testState.deckCount[currentPlayer];
-		if (testState.deckCount[currentPlayer] > 1) {
-			testState.deck[currentPlayer][testState.deckCount[currentPlayer] - 1] = copper;
-			testState.deck[currentPlayer][testState.deckCount[currentPlayer] - 2] = copper;
-			state.deck[currentPlayer][state.deckCount[currentPlayer] - 1] = copper;
-			state.deck[currentPlayer][state.deckCount[currentPlayer] - 2] = copper;
-		} else {
-			testState.deckCount[currentPlayer] = 2;
-			testState.deck[currentPlayer][0] = copper;
-			testState.deck[currentPlayer][1] = copper;
-			state.deckCount[currentPlayer] = 2;
-			state.deck[currentPlayer][0] = copper;
-			state.deck[currentPlayer][1] = copper;
-		}
 		
 		testState.discardCount[currentPlayer] = floor(Random() * MAX_DECK);
-		state.discardCount[currentPlayer] = testState.discardCount[currentPlayer];
-		if (testState.discardCount[currentPlayer] > 1) {
-			testState.discard[currentPlayer][0] = copper;
-			testState.discard[currentPlayer][1] = copper;
-			state.discard[currentPlayer][0] = copper;
-			state.discard[currentPlayer][1] = copper;
-		} else {
-			testState.discardCount[currentPlayer] = 2;
-			testState.discard[currentPlayer][0] = copper;
-			testState.discard[currentPlayer][1] = copper;
-			state.discardCount[currentPlayer] = 2;
-			state.discard[currentPlayer][0] = copper;
-			state.discard[currentPlayer][1] = copper;
-		}
 		
 		testState.handCount[currentPlayer] = floor(Random() * MAX_HAND);
-		state.handCount[currentPlayer] = testState.handCount[currentPlayer];
+		if (testState.handCount[currentPlayer] < 1) {
+			testState.handCount[currentPlayer] = 1;
+		} 
+		testState.hand[currentPlayer][0] = village;
+		
+		testState.playedCardCount = floor(Random() * 10);
 		
 		//Statement used for testing
 		//printf("%d, %d, %d, %d, %d\n", numPlayers, currentPlayer, testState.deckCount[currentPlayer], testState.discardCount[currentPlayer], testState.handCount[currentPlayer]);
 		
-		x = adventurerCard(&testState, currentPlayer);
+		x = villageCard(&testState, currentPlayer, 0);
 		customAssert(x, 0);
 		//Statement used for testing
 		//printf("Ran statement\n");
 		
-		customAssert(testState.handCount[currentPlayer], state.handCount[currentPlayer] + 2);
-		customAssert(testState.playedCardCount, state.playedCardCount);
+		
+		//seed = floor(Random() * 500);
+		//initializeGame(numPlayers, k, seed, &testState);
+		
+		//initializeGame(); //Needs # players, supply list, seed, and state struct
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 	

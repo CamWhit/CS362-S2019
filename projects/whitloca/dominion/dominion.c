@@ -1265,7 +1265,6 @@ int cutpurseCard(struct gameState* state, int currentPlayer, int handPos)
 
 int discardCard(int handPos, int currentPlayer, struct gameState *state, int trashFlag)
 {
-	
   //if card is not trashed, added to Played pile 
   if (trashFlag < 1)
     {

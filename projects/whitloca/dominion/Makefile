@@ -1,7 +1,31 @@
 CFLAGS= -Wall -fpic -coverage -lm -std=c99
 
+randomtestresults: randomtestresults.out
+
+randomtestresults.out: randomtestadventurer.c randomtestcard1.c randomtestcard2.c
+	echo "Result for running randomtestadventurer:" >> randomtestresults.out
+	echo "randomtestadventurer.c:" >> randomtestadventurer.out
+	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
+	randomtestadventurer.exe >> randomtestresults.out
+
+	echo "Result for running randomtestcard1:" >> randomtestresults.out
+	echo "randomtestcard1.c:" >> randomtestadventurer.out
+	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
+	randomtestcard1.exe >> randomtestresults.out
+
+	echo "Result for running randomtestcard2:" >> randomtestresults.out
+	echo "randomtestcard2.c:" >> randomtestadventurer.out
+	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
+	randomtestcard2.exe >> randomtestresults.out
+
 randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
 	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
+
+randomtestcard1: randomtestcard1.c dominion.o rngs.o
+	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
+
+randomtestcard2: randomtestcard2.c dominion.o rngs.o
+	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
 
 rngs.o: rngs.h rngs.c
 	gcc -c rngs.c -g  $(CFLAGS)
