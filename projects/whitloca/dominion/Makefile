@@ -1,5 +1,75 @@
 CFLAGS= -Wall -fpic -coverage -lm -std=c99
 
+testresults: testresults.out
+
+testresults.out: unittest1.c unittest2.c unittest3.c unittest4.c
+
+	echo "Result for running unittest1:" >> testresults.out
+	echo "unittest1.c:" >> testresults.out
+	gcc -o unittest1 -g unittest1.c dominion.o rngs.o $(CFLAGS)
+	unittest1.exe >> testresults.out
+
+	echo "Result for running unittest2:" >> testresults.out
+	echo "unittest2.c:" >> testresults.out
+	gcc -o unittest2 -g unittest2.c dominion.o rngs.o $(CFLAGS)
+	unittest2.exe >> testresults.out
+
+	echo "Results for running unittest3:" >> testresults.out
+	echo "unittest3.c:" >> testresults.out
+	gcc -o unittest3 -g unittest3.c dominion.o rngs.o $(CFLAGS)
+	unittest3.exe >> testresults.out
+
+	echo "Results for running unittest4:" >> testresults.out
+	echo "unittest4.c:" >> testresults.out
+	gcc -o unittest4 -g unittest4.c dominion.o rngs.o $(CFLAGS)
+	unittest4.exe >> testresults.out
+
+	echo "Results for running cardtest1:" >> testresults.out
+	echo "cardtest1.c:" >> testresults.out
+	gcc -o cardtest1 -g cardtest1.c dominion.o rngs.o $(CFLAGS)
+	cardtest1.exe >> testresults.out
+
+	echo "Results for running cardtest2:" >> testresults.out
+	echo "cardtest2.c:" >> testresults.out
+	gcc -o cardtest2 -g cardtest2.c dominion.o rngs.o $(CFLAGS)
+	cardtest2.exe >> testresults.out
+
+	echo "Results for running cardtest3:" >> testresults.out
+	echo "cardtest3.c:" >> testresults.out
+	gcc -o cardtest3 -g cardtest3.c dominion.o rngs.o $(CFLAGS)
+	cardtest3.exe >> testresults.out
+
+	echo "Results for running cardtest4:" >> testresults.out
+	echo "cardtest4.c:" >> testresults.out
+	gcc -o cardtest4 -g cardtest4.c dominion.o rngs.o $(CFLAGS)
+	cardtest4.exe >> testresults.out
+
+
+unittest1: unittest1.c dominion.o rngs.o
+	gcc -o unittest1 -g unittest1.c dominion.o rngs.o $(CFLAGS)
+
+unittest2: unittest2.c dominion.o rngs.o
+	gcc -o unittest2 -g unittest2.c dominion.o rngs.o $(CFLAGS)
+
+unittest3: unittest3.c dominion.o rngs.o
+	gcc -o unittest3 -g unittest3.c dominion.o rngs.o $(CFLAGS)
+
+unittest4: unittest4.c dominion.o rngs.o
+	gcc -o unittest4 -g unittest4.c dominion.o rngs.o $(CFLAGS)
+
+cardtest1: cardtest1.c dominion.o rngs.o
+	gcc -o cardtest1 -g cardtest1.c dominion.o rngs.o $(CFLAGS)
+
+cardtest2: cardtest2.c dominion.o rngs.o
+	gcc -o cardtest2 -g cardtest2.c dominion.o rngs.o $(CFLAGS)
+
+cardtest3: cardtest3.c dominion.o rngs.o
+	gcc -o cardtest3 -g cardtest3.c dominion.o rngs.o $(CFLAGS)
+
+cardtest4: cardtest4.c dominion.o rngs.o
+	gcc -o cardtest4 -g cardtest4.c dominion.o rngs.o $(CFLAGS)
+
+
 rngs.o: rngs.h rngs.c
 	gcc -c rngs.c -g  $(CFLAGS)
 
