@@ -20,7 +20,7 @@ gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
 #define TESTCARD "Village"
 
 int FAILURES = 0;
-int NUMTESTS = 1;
+int NUMTESTS = 10;
 
 void customAssert(int varOne, int varTwo, int type) {
 	if (varOne != varTwo) {
@@ -103,7 +103,7 @@ int main() {
 		//Statement used for testing
 		//printf("%d, %d, %d, %d, %d\n", numPlayers, currentPlayer, testState.deckCount[currentPlayer], testState.discardCount[currentPlayer], testState.handCount[currentPlayer]);
 		
-		x = villageEffect(&testState, 0);
+		x = villageEffect(&testState, 0, currentPlayer);
 		customAssert(x, 0, 0);
 		//Statement used for testing
 		//printf("Ran statement\n");

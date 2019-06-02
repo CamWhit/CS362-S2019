@@ -4,14 +4,12 @@
 TEST 1: Function smithyCard runs successfully
 Refactored function ran successfully
 TEST 2: Testing Result of smithy Card
-Hand Count = 8, Expected Hand Count = 7
-**Assertion Failed** Program will continue instead of crashing
+Hand Count = 7, Expected Hand Count = 7
 Deck Count = 2, Expected Deck Count = 2
-Opponent Hand Count = -1, Expected Opponent Hand Count = 0
-**Assertion Failed** Program will continue instead of crashing
+Opponent Hand Count = 0, Expected Opponent Hand Count = 0
 Opponent Deck Count = 10, Expected Opponent Deck Count = 10
 Played Card Pile Count = 1, Expected Played Card Pile Count = 1
--------------------- TESTING FAILED: Failed 2 Asserts --------------------
+-------------------- SUCCESS: Testing for smithy Complete --------------------
 
 "Result for running unittest2:" 
 "unittest2.c:" 
@@ -46,11 +44,10 @@ Opponent Hand Count = 0, Expected Opponent Hand Count = 0
 TEST 1: Smithy runs successfully
 Card ran successfully
 TEST 2: Testing Result of smithy Card
-Card Count = 8, Expected Card Count = 7
-**Assertion Failed** Program will continue instead of crashing
+Card Count = 7, Expected Card Count = 7
 First Card in Hand = 4, Expected First Card in Hand = 4
 Estate's in Starting Deck Count = 3, Expected Estate's in Starting Deck = 3
--------------------- TESTING FAILED: Failed 1 Asserts --------------------
+-------------------- SUCCESS: Testing for smithy Complete --------------------
 
 "Results for running cardtest2:" 
 "cardtest2.c:" 
@@ -93,11 +90,39 @@ Hand Count = 5, Expected Hand Count = 5
 Coin Count = 7, Expected Coin Count = 7
 -------------------- SUCCESS: Testing for baron Complete --------------------
 
+"Results for running randomtestadventurer:" 
+"randomtestadventurer.c:" 
+2, 0, 270, 278, 87
+Ran statement
+**Assertion Failed** Incorrect Draw Amount. Program will continue instead of crashing
+3, 2, 30, 394, 305
+Ran statement
+**Assertion Failed** Incorrect Draw Amount. Program will continue instead of crashing
+-------------------- TESTING FAILED: Failed 2 Asserts --------------------
+
+"Results for running randomtestcard1:" 
+"randomtestcard1.c:" 
+**Assertion Failed** Incorrect Action Count. Program will continue instead of crashing
+**Assertion Failed** Incorrect Action Count. Program will continue instead of crashing
+**Assertion Failed** Incorrect Action Count. Program will continue instead of crashing
+**Assertion Failed** Incorrect Action Count. Program will continue instead of crashing
+**Assertion Failed** Incorrect Action Count. Program will continue instead of crashing
+**Assertion Failed** Incorrect Action Count. Program will continue instead of crashing
+**Assertion Failed** Incorrect Action Count. Program will continue instead of crashing
+**Assertion Failed** Incorrect Action Count. Program will continue instead of crashing
+**Assertion Failed** Incorrect Action Count. Program will continue instead of crashing
+**Assertion Failed** Incorrect Action Count. Program will continue instead of crashing
+-------------------- TESTING FAILED: Failed 10 Asserts --------------------
+
+"Results for running randomtestcard2:" 
+"randomtestcard2.c:" 
+-------------------- SUCCESS: Testing for Smithy Complete --------------------
+
 File 'dominion.c'
-Lines executed:32.53% of 621
-Branches executed:41.97% of 417
-Taken at least once:24.22% of 417
-Calls executed:27.88% of 104
+Lines executed:36.81% of 614
+Branches executed:43.88% of 417
+Taken at least once:26.86% of 417
+Calls executed:31.96% of 97
 Creating 'dominion.c.gcov'
 
 File 'c:/mingw/include/stdio.h'

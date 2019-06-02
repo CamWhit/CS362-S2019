@@ -57,7 +57,7 @@ int main() {
 	
 	//Test to see if refactored function ran successfully
 	printf("TEST 1: Function adventurerCard runs successfully\n");
-	x = adventurerEffect(&testState);
+	x = adventurerEffect(&testState, currentPlayer);
 	customAssert(x, 0);
 	printf("Refactored function ran successfully\n");
 	

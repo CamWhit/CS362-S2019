@@ -39,6 +39,21 @@ testresults.out: unittest1.c unittest2.c unittest3.c unittest4.c
 	gcc -o cardtest4 -g cardtest4.c dominion.o rngs.o $(CFLAGS)
 	cardtest4.exe >> testresults.out
 
+	echo "Results for running randomtestadventurer:" >> testresults.out
+	echo "randomtestadventurer.c:" >> testresults.out
+	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
+	randomtestadventurer.exe >> testresults.out
+
+	echo "Results for running randomtestcard1:" >> testresults.out
+	echo "randomtestcard1.c:" >> testresults.out
+	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
+	randomtestcard1.exe >> testresults.out
+
+	echo "Results for running randomtestcard2:" >> testresults.out
+	echo "randomtestcard2.c:" >> testresults.out
+	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
+	randomtestcard2.exe >> testresults.out
+
 	gcov -a -b dominion.c >> testresults.out
 
 randomtestadventurer: randomtestadventurer.c dominion.o rngs.o

@@ -20,7 +20,7 @@ gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS
 #define TESTCARD "Adventurer"
 
 int FAILURES = 0;
-int NUMTESTS = 20000;
+int NUMTESTS = 2;
 
 void customAssert(int varOne, int varTwo, int type) {
 	if (varOne != varTwo) {
@@ -119,12 +119,12 @@ int main() {
 		state.handCount[currentPlayer] = testState.handCount[currentPlayer];
 		
 		//Statement used for testing
-		//printf("%d, %d, %d, %d, %d\n", numPlayers, currentPlayer, testState.deckCount[currentPlayer], testState.discardCount[currentPlayer], testState.handCount[currentPlayer]);
+		printf("%d, %d, %d, %d, %d\n", numPlayers, currentPlayer, testState.deckCount[currentPlayer], testState.discardCount[currentPlayer], testState.handCount[currentPlayer]);
 		
 		x = adventurerEffect(&testState, currentPlayer);
 		customAssert(x, 0, 0);
 		//Statement used for testing
-		//printf("Ran statement\n");
+		printf("Ran statement\n");
 		
 		customAssert(testState.handCount[currentPlayer], state.handCount[currentPlayer] + 2, 1);
 		customAssert(testState.playedCardCount, state.playedCardCount, 2);

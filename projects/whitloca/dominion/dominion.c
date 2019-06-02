@@ -667,7 +667,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 	switch( card )
 	{
 		case adventurer:
-		adventurerEffect(state);			//draw cards until you have two treasures, discard rest of the cards
+		adventurerEffect(state, currentPlayer);			//draw cards until you have two treasures, discard rest of the cards
 		return 0;
 		
 		case council_room:
@@ -812,7 +812,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 		return 0;
 		
 		case smithy:
-		smithyEffect(state, handPos);			//draw three cards
+		smithyEffect(state, handPos, currentPlayer);			//draw three cards
 		return 0;
 		
 		case village:
@@ -1250,13 +1250,14 @@ int updateCoins(int player, struct gameState *state, int bonus)
 
 //========Below are additions by Devin Mourrain========
 
-int adventurerEffect(struct gameState *state)
+int adventurerEffect(struct gameState *state, int currentPlayer)
 {
 	int drawnTreasure = 0;
 	int cardDrawn;
-	int currentPlayer = whoseTurn(state);
+	//int currentPlayer = whoseTurn(state);
 	int tempHand[MAX_HAND];
 	int tempCount = 0;
+	
 
 	while (drawnTreasure<=2){			//bug: should be <2, not <=2		//if the deck is empty, we need to shuffle discard and add to the deck
 		if (state->deckCount[currentPlayer] < 1){
@@ -1264,8 +1265,9 @@ int adventurerEffect(struct gameState *state)
 		}
 		drawCard(currentPlayer, state);
 		cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];	//top card of hand is most recently drawn card
-		if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+		if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold) {
 		drawnTreasure++;
+		}
 		else{
 			tempHand[tempCount] = cardDrawn;
 			state->handCount[currentPlayer]--;						//should just remove the top card (most recently drawn one)
@@ -1280,9 +1282,9 @@ int adventurerEffect(struct gameState *state)
 	return 0;
 }
 
-int smithyEffect(struct gameState *state, int handPos)
+int smithyEffect(struct gameState *state, int handPos, int currentPlayer)
 {
-	int currentPlayer = whoseTurn(state);
+	//int currentPlayer = whoseTurn(state);
 	
 	//+3 cards
 	for (int i = 0; i < 3; i++){
@@ -1290,14 +1292,15 @@ int smithyEffect(struct gameState *state, int handPos)
 	}
 
 	//discard played card from hand
-	discardCard(handPos, currentPlayer+1, state, 0);		//bug: added +1 to current player
+	//discardCard(handPos, currentPlayer+1, state, 0);		//bug: added +1 to current player
+	discardCard(handPos, currentPlayer, state, 0); //Cameron comment - had to fix this bug to have code run, I do not randomly set up other players for this card test and it can go out of bounds
 
 	return 0;
 }
 
-int villageEffect(struct gameState *state, int handPos)
+int villageEffect(struct gameState *state, int handPos, int currentPlayer)
 {
-	int currentPlayer = whoseTurn(state);
+	//int currentPlayer = whoseTurn(state);
 	//printf("Pass 1\n");
 	
 	//+1 card
