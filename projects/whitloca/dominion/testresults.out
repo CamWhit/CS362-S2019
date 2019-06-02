@@ -1,0 +1,108 @@
+"Result for running unittest1:" 
+"unittest1.c:" 
+-------------------- Testing Card: smithy --------------------
+TEST 1: Function smithyCard runs successfully
+Refactored function ran successfully
+TEST 2: Testing Result of smithy Card
+Hand Count = 8, Expected Hand Count = 7
+**Assertion Failed** Program will continue instead of crashing
+Deck Count = 2, Expected Deck Count = 2
+Opponent Hand Count = -1, Expected Opponent Hand Count = 0
+**Assertion Failed** Program will continue instead of crashing
+Opponent Deck Count = 10, Expected Opponent Deck Count = 10
+Played Card Pile Count = 1, Expected Played Card Pile Count = 1
+-------------------- TESTING FAILED: Failed 2 Asserts --------------------
+
+"Result for running unittest2:" 
+"unittest2.c:" 
+-------------------- Testing Card: adventurer --------------------
+TEST 1: Function adventurerCard runs successfully
+Refactored function ran successfully
+TEST 2: Testing Result of adventurer Card
+Hand Count = 8, Expected Hand Count = 7
+**Assertion Failed** Program will continue instead of crashing
+Deck Count = 2, Expected Deck Count = 3
+**Assertion Failed** Program will continue instead of crashing
+Played Card Pile Count = 0, Expected Played Card Pile Count = 1
+**Assertion Failed** Program will continue instead of crashing
+Deck Count = 7, Expected Deck Count = 7
+Value of two recent cards in hand: 4, 4
+-------------------- TESTING FAILED: Failed 3 Asserts --------------------
+
+"Results for running unittest4:" 
+"unittest4.c:" 
+-------------------- Testing Card: cutpurse --------------------
+TEST 1: Function cutpurseCard runs successfully
+Refactored function ran successfully
+TEST 2: Testing Result of cutpurse Card
+Coin Count = 5, Expected Coin Count = 5
+Hand Count = 4, Expected Hand Count = 4
+Opponent Hand Count = 0, Expected Opponent Hand Count = 0
+-------------------- SUCCESS: Testing for cutpurse Complete --------------------
+
+"Results for running cardtest1:" 
+"cardtest1.c:" 
+-------------------- Testing Card: smithy --------------------
+TEST 1: Smithy runs successfully
+Card ran successfully
+TEST 2: Testing Result of smithy Card
+Card Count = 8, Expected Card Count = 7
+**Assertion Failed** Program will continue instead of crashing
+First Card in Hand = 4, Expected First Card in Hand = 4
+Estate's in Starting Deck Count = 3, Expected Estate's in Starting Deck = 3
+-------------------- TESTING FAILED: Failed 1 Asserts --------------------
+
+"Results for running cardtest2:" 
+"cardtest2.c:" 
+-------------------- Testing Card: adventurer --------------------
+TEST 1: Function Adventurer runs successfully
+Card ran successfully
+TEST 2: Testing Result of adventurer Card
+Hand Count = 8, Expected Hand Count = 7
+**Assertion Failed** Program will continue instead of crashing
+Played Card Pile Count = 0, Expected Played Card Pile Count = 1
+**Assertion Failed** Program will continue instead of crashing
+Coin Count = -1, Expected Coin Count = -1
+-------------------- TESTING FAILED: Failed 2 Asserts --------------------
+
+"Results for running cardtest3:" 
+"cardtest3.c:" 
+-------------------- Testing Card: salvager --------------------
+TEST 1: Function Salvager runs successfully
+Card ran successfully
+TEST 2: Testing Result of salvager Card
+Trashed Card = 1, Expected Trashed Card = 1
+Buys For This Turn = 2, Expected Buys For This Turn = 2
+Coins Available = 5, Expected Coins Available = 5
+Trashed Pile Count = 1, Expected Trashed Pile Count = 1
+-------------------- SUCCESS: Testing for salvager Complete --------------------
+
+"Results for running cardtest4:" 
+"cardtest4.c:" 
+-------------------- Testing Card: baron --------------------
+TEST 1: Baron runs successfully
+Card ran successfully
+TEST 2: Testing Result of baron Card, Discarding an Estate
+Buy Count = 2, Expected Buy Count = 2
+Hand Count = 4, Expected Hand Count = 4
+Coin Count = 7, Expected Coin Count = 7
+Cards Discarded from Hand = 1, Expected Cards Discarded from Hand = 1
+TEST 3: Testing Result of baron Card, Discarding a Copper
+Buy Count = 2, Expected Buy Count = 2
+Hand Count = 5, Expected Hand Count = 5
+Coin Count = 7, Expected Coin Count = 7
+-------------------- SUCCESS: Testing for baron Complete --------------------
+
+File 'dominion.c'
+Lines executed:32.53% of 621
+Branches executed:41.97% of 417
+Taken at least once:24.22% of 417
+Calls executed:27.88% of 104
+Creating 'dominion.c.gcov'
+
+File 'c:/mingw/include/stdio.h'
+Lines executed:0.00% of 5
+No branches
+Calls executed:0.00% of 1
+Creating 'stdio.h.gcov'
+

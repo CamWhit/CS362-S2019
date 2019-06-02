@@ -1298,15 +1298,19 @@ int smithyEffect(struct gameState *state, int handPos)
 int villageEffect(struct gameState *state, int handPos)
 {
 	int currentPlayer = whoseTurn(state);
+	//printf("Pass 1\n");
 	
 	//+1 card
 	drawCard(currentPlayer, state);
+	//printf("Pass 2\n");
 
 	//+2 actions
 	state->numActions = state->numActions;			//bug: removed + 2 from number of actions
+	//printf("Pass 3\n");
 
 	//discard played card from hand
 	discardCard(handPos, currentPlayer, state, 0);
+	//printf("Pass 4\n");
 
 	return 0;
 }

@@ -63,7 +63,7 @@ int main() {
 	initializeGame(players, k, seed, &testState);
 	
 	
-	x = smithyCard(&testState, currentPlayer, handPos);
+	x = smithyEffect(&testState, handPos);
 	customAssert(x, 0);
 	printf("Refactored function ran successfully\n");
 	

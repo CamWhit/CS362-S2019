@@ -62,7 +62,7 @@ int main() {
 	initializeGame(players, k, seed, &testState);
 
 
-	x = cutpurseCard(&testState, currentPlayer, handPos);
+	x = cutpurseEffect(&testState, handPos);
 	customAssert(x, 0);
 	printf("Refactored function ran successfully\n");
 

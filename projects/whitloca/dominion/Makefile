@@ -14,11 +14,6 @@ testresults.out: unittest1.c unittest2.c unittest3.c unittest4.c
 	gcc -o unittest2 -g unittest2.c dominion.o rngs.o $(CFLAGS)
 	unittest2.exe >> testresults.out
 
-	echo "Results for running unittest3:" >> testresults.out
-	echo "unittest3.c:" >> testresults.out
-	gcc -o unittest3 -g unittest3.c dominion.o rngs.o $(CFLAGS)
-	unittest3.exe >> testresults.out
-
 	echo "Results for running unittest4:" >> testresults.out
 	echo "unittest4.c:" >> testresults.out
 	gcc -o unittest4 -g unittest4.c dominion.o rngs.o $(CFLAGS)
@@ -44,15 +39,22 @@ testresults.out: unittest1.c unittest2.c unittest3.c unittest4.c
 	gcc -o cardtest4 -g cardtest4.c dominion.o rngs.o $(CFLAGS)
 	cardtest4.exe >> testresults.out
 
+	gcov -a -b dominion.c >> testresults.out
+
+randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
+	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
+
+randomtestcard1: randomtestcard1.c dominion.o rngs.o
+	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
+
+randomtestcard2: randomtestcard2.c dominion.o rngs.o
+	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
 
 unittest1: unittest1.c dominion.o rngs.o
 	gcc -o unittest1 -g unittest1.c dominion.o rngs.o $(CFLAGS)
 
 unittest2: unittest2.c dominion.o rngs.o
 	gcc -o unittest2 -g unittest2.c dominion.o rngs.o $(CFLAGS)
-
-unittest3: unittest3.c dominion.o rngs.o
-	gcc -o unittest3 -g unittest3.c dominion.o rngs.o $(CFLAGS)
 
 unittest4: unittest4.c dominion.o rngs.o
 	gcc -o unittest4 -g unittest4.c dominion.o rngs.o $(CFLAGS)
