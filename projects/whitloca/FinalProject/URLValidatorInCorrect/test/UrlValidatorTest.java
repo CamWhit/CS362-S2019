@@ -37,7 +37,8 @@ protected void setUp() {
          testPartsIndex[index] = 0;
       }
    }
-
+   
+   
    public void testIsValid() {
         testIsValid(testUrlParts, UrlValidator.ALLOW_ALL_SCHEMES);
         setUp();
